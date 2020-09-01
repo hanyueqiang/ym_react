@@ -33,7 +33,10 @@ module.exports = {
       {
         test: /\.js(x?)|(\.ts(x?))$/,
         exclude: /[[\\/]node_modules[\\/]]/,
-        loader: 'babel-loader?cacheDirectory=true',
+        use: [
+          // 'thread-loader',
+          'babel-loader?cacheDirectory=true',
+        ],
       },
       {
         test: /\.(less|css)$/,
@@ -49,6 +52,18 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'less-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        exclude: /[[\\/]node_modules[\\/]]/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[sha512:hash:base64:7].[ext]',
+            },
+          },
         ],
       },
     ],
@@ -68,14 +83,20 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
   ],
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
+      maxInitialRequests: 6,
       cacheGroups: {
         commons: {
           test: /[[\\/]node_modules[\\/]]/,
-          name: 'vendors',
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `npm.${packageName.replace('@', '')}`;
+          },
           chunks: 'all',
         },
       },
