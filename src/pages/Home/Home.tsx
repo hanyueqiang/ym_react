@@ -1,11 +1,17 @@
-import React, { FC } from 'react';
+import React, { FC, Dispatch } from 'react';
 import { addNovelWord, subtractNovelWord } from '@/redux/actions/novel';
 
+<<<<<<< HEAD
 import * as styles from './Home.less';
+=======
+import './Home.less';
+
+import ymPng from '@/assets/ym.jpg';
+>>>>>>> a1a67a505241c4914b8a51246ea3b1ef2a0c24c1
 
 interface HomeProps {
-  addWordsNumber: Function;
-  substructWordsNumber: Function;
+  addWordsNumber: (number: number) => void;
+  substructWordsNumber: (number: number) => void;
   wordsNumber: number;
 }
 interface NovelState {
@@ -24,7 +30,6 @@ const Home: FC<HomeProps> = (props) => {
   const handleSubstruct = () => {
     substructWordsNumber(1);
   };
-  console.log('styles', styles);
 
   return (
     <div>
@@ -33,7 +38,12 @@ const Home: FC<HomeProps> = (props) => {
       <div onClick={handleAdd} className="add">
         增加一
       </div>
-      <div onClick={handleSubstruct}>减少一</div>
+      <div onClick={handleSubstruct} className="ddd">
+        减少一
+      </div>
+      <div>
+        <img src={ymPng} alt="" />
+      </div>
     </div>
   );
 };
@@ -44,7 +54,7 @@ const mapStateToProps = (state: StateProps): NovelState => {
   return { wordsNumber };
 };
 
-const mapDispatchToProps = (dispatch: Function): object => ({
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   addWordsNumber: (number: number): void => dispatch(addNovelWord(number)),
   substructWordsNumber: (number: number): void => dispatch(subtractNovelWord(number)),
 });
