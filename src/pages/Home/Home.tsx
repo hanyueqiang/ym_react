@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { addNovelWord, subtractNovelWord } from '@/redux/actions/novel';
 
-import * as styles from './Home.css';
+import * as styles from './Home.less';
 
 interface HomeProps {
   addWordsNumber: Function;
@@ -14,7 +14,7 @@ interface NovelState {
 interface StateProps {
   novel: NovelState;
 }
-const Home: FC<HomeProps> = props => {
+const Home: FC<HomeProps> = (props) => {
   const { addWordsNumber, substructWordsNumber, wordsNumber } = props;
 
   const handleAdd = () => {
@@ -30,7 +30,7 @@ const Home: FC<HomeProps> = props => {
     <div>
       <h1>hello world</h1>
       <h1>{wordsNumber}</h1>
-      <div onClick={handleAdd} className={styles.add}>
+      <div onClick={handleAdd} className="add">
         增加一
       </div>
       <div onClick={handleSubstruct}>减少一</div>
