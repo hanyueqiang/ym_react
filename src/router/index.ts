@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 
-const Home = React.lazy(() => import("@/pages/Home/Home"));
-const Novel = React.lazy(() => import("@/pages/Novel/Novel"));
-const Author = React.lazy(() => import("@/pages/Author/Author"));
+const Home = React.lazy(() => import('@/pages/Home/Home'));
+const Novel = React.lazy(() => import('@/pages/Novel/Novel'));
+const Author = React.lazy(() => import('@/pages/Author/Author'));
 
 const routers = [
   {
-    path: "/",
+    path: '/',
     exact: true,
     component: Home,
   },
   {
-    path: "/novels",
+    path: '/novels',
     exact: true,
     component: Novel,
   },
   {
-    path: "/authors",
+    path: '/authors',
     exact: true,
     component: Author,
   },

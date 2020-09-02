@@ -1,6 +1,5 @@
 import React, { FC, Dispatch } from 'react';
 import { addNovelWord, subtractNovelWord } from '@/redux/actions/novel';
-
 import './Home.less';
 
 import ymPng from '@/assets/ym.jpg';
