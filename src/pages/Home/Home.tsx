@@ -15,7 +15,7 @@ interface NovelState {
 interface StateProps {
   novel: NovelState;
 }
-const Home: FC<HomeProps> = props => {
+const Home: FC<HomeProps> = (props) => {
   const { addWordsNumber, substructWordsNumber, wordsNumber } = props;
 
   const handleAdd = () => {
@@ -28,7 +28,7 @@ const Home: FC<HomeProps> = props => {
 
   return (
     <div>
-      <h1>hello world</h1>
+      <h1>hello world!!!!</h1>
       <h1>{wordsNumber}</h1>
       <div onClick={handleAdd} className="add">
         增加一
