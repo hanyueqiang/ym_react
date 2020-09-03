@@ -1,13 +1,7 @@
 import React, { FC, Dispatch } from 'react';
 import { addNovelWord, subtractNovelWord } from '@/redux/actions/novel';
-
-<<<<<<< HEAD
-import * as styles from './Home.less';
-=======
-import './Home.less';
-
 import ymPng from '@/assets/ym.jpg';
->>>>>>> a1a67a505241c4914b8a51246ea3b1ef2a0c24c1
+import './Home.less';
 
 interface HomeProps {
   addWordsNumber: (number: number) => void;

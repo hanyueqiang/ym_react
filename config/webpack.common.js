@@ -7,7 +7,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, '../src/index.tsx'),
+    app: path.resolve(__dirname, '../src/main.tsx'),
   },
   output: {
     filename: devMode ? '[name].js' : '[name].[hash].js',
