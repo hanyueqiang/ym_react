@@ -7,9 +7,9 @@ import './index.less';
 
 const HeaderLayout = () => {
   return (
-    <Header className="header quality-header">
+    <Header className="header">
       <div className="logo" />
-      <h1 className="title">welcome</h1>
+      <div className="title">welcome</div>
     </Header>
   );
 };
