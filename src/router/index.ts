@@ -16,6 +16,11 @@ const routers = [
     component: Novel,
   },
   {
+    path: '/home',
+    exact: true,
+    component: Home,
+  },
+  {
     path: '/authors',
     exact: true,
     component: Author,

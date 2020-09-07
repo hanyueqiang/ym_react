@@ -10,6 +10,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
   ],
@@ -21,6 +22,7 @@ module.exports = {
   rules: {
     'react/jsx-no-undef': 'off',
     'react/prop-types': 'off',
+    'react/display-name': 'off',
   },
   env: {
     browser: true,

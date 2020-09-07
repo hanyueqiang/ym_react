@@ -6,7 +6,7 @@ import ContentMain from './content';
 
 export default () => {
   return (
-    <Layout>
+    <Layout className="container">
       <HeaderMain />
       <Layout>
         <SliderMain />
