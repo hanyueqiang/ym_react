@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '@/redux/store';
 import { ConfigProvider } from 'antd';
@@ -12,9 +13,14 @@ moment.locale('zh-cn');
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConfigProvider locale={zhCN}>
-      <LayoutMain />
-    </ConfigProvider>
+    <Router>
+      <ConfigProvider locale={zhCN}>
+        <Switch>
+          <LayoutMain />
+        </Switch>
+        <LayoutMain />
+      </ConfigProvider>
+    </Router>
   </Provider>,
   document.getElementById('root'),
 );

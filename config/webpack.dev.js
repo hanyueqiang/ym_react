@@ -6,8 +6,12 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     open: true,
-    hot: true,
+    hot: true, // 支持热更新
     historyApiFallback: true,
+    port: 8088,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   // devServer: {
   //   contentBase: path.join(__dirname, "dist"),

@@ -1,4 +1,5 @@
 import React, { FC, Dispatch } from 'react';
+import { Button } from 'antd';
 import { addNovelWord, subtractNovelWord } from '@/redux/actions/novel';
 import ymPng from '@/assets/ym.jpg';
 import './Home.less';
@@ -24,19 +25,23 @@ const Home: FC<HomeProps> = (props) => {
   const handleSubstruct = () => {
     substructWordsNumber(1);
   };
-
+  console.log('wordsNumber', wordsNumber);
   return (
     <div>
-      <h1>hello world</h1>
-      <h1>{wordsNumber}</h1>
-      <div onClick={handleAdd} className="add">
-        增加一
-      </div>
-      <div onClick={handleSubstruct} className="ddd">
-        减少一
+      <div>redux数据流：{wordsNumber}</div>
+      <Button onClick={handleAdd} className="home-add" type="primary">
+        增加
+      </Button>
+      <Button onClick={handleSubstruct} type="primary">
+        减少
+      </Button>
+      <div>
+        <div>组件引入图片方式</div>
+        <img src={ymPng} alt="" height="40" width="40" />
       </div>
       <div>
-        <img src={ymPng} alt="" />
+        <div>css中引入图片方式</div>
+        <div className="home-img" />
       </div>
     </div>
   );

@@ -1,35 +1,31 @@
 import React from 'react';
-
+import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-const { Content } = Layout;
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import routers from '@/router';
-
 import './index.less';
+const { Content } = Layout;
 
-export default () => {
+const ContentLayout = () => {
   return (
-    <Layout className="content-quality">
-      <Content className="content-quality-main">
-        <Router>
-          <Switch>
-            {routers.map((route, index) => (
-              <RouteWithSubRouters key={index} {...route} />
-            ))}
-          </Switch>
-        </Router>
+    <Layout>
+      <Content className="content">
+        <Switch>
+          {routers.map((route, index) => (
+            <RouteWithSubRouters key={index} {...route} />
+          ))}
+        </Switch>
       </Content>
     </Layout>
   );
 };
-
+export default ContentLayout;
 interface RouteType {
   path: string;
-  component: Function;
-  routes?: object;
+  component: any;
+  routes?: any;
 }
 
-function RouteWithSubRouters(route: RouteType) {
+const RouteWithSubRouters = (route: RouteType) => {
   return (
     <Route
       path={route.path}
@@ -42,4 +38,4 @@ function RouteWithSubRouters(route: RouteType) {
       }}
     />
   );
-}
+};
