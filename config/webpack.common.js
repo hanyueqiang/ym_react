@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const devMode = process.env.NODE_ENV !== 'production';
@@ -99,6 +100,9 @@ module.exports = {
         removeScriptTypeAttributes: true, // 移除script的type属性
         removeStyleLinkTypeAttributes: true, // 移除link的type属性
       },
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'public', to: './' }],
     }),
     // 自动查找标志符，当需要变量React时候，会自动去node_modules查找react模块
     new webpack.ProvidePlugin({
